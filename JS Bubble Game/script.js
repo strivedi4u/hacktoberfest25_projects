@@ -2,7 +2,7 @@
 var timex = 60;
 var score = 0;
 var hitrn = 0;
-
+var timeInterval;  // Variable to hold the timer ID
 
 function increseScore() {
     score += 10;
@@ -15,19 +15,26 @@ function Hit() {
 }
 
 function Timer() {
-
-    var time = setInterval(function () {
+    timex = 60;
+    document.querySelector("#time").textContent = timex;
+    
+    timeInterval = setInterval(function () {
         if (timex > 0) {
             timex--;
-            // console.log(time)
             document.querySelector("#time").textContent = timex
         }
         else {
-            clearInterval(timex);
-            document.querySelector(".pbottom").innerHTML = `<h1>Game Over! Score = ${score}<h1>`
-            
+            clearInterval(timeInterval);
+            document.querySelector(".pbottom").innerHTML =  `<h1 class="msg">Game Over! Score = ${score}</h1><button id="btn">Try Again!</button>`;
+
+            document.querySelector("#btn").addEventListener("click", function() {
+                score = 0;
+                document.querySelector("#scoreval").textContent = score;
+                document.querySelector(".pbottom").innerHTML = "";
+                start();
+            });
         }
-    }, 1000)
+    }, 100)
 
 
 }
@@ -43,7 +50,6 @@ function makeBubble() {
 
 document.querySelector(".pbottom").addEventListener("click",function(details){
     var press = Number(details.target.textContent);
-    console.log(press)
     if(hitrn === press){
         increseScore();
         makeBubble();
@@ -62,4 +68,3 @@ function start(){
     Timer();
     Hit();
 }
-// IncreseScore();
