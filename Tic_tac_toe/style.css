@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&display=swap');
+
+body
+{
+background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-iXMl-2gPTFY6JYCaBv9fpYNC1vOe63FZ2Q&s'); 
+}
+.nv{
+   font-family: "Libertinus Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+    margin-top: 50px;
+display: flex;
+justify-content: center;
+}
+.contain
+{
+    width: max-content;
+    display: grid;
+    font-family:'Times New Roman', Times, serif;
+    grid-template-columns: repeat(3,10vw);
+    grid-template-rows: repeat(3,10vw);
+}
+.gameinfo p{
+    font-size:40px ;
+}
+.box
+{
+    border: solid 2px;
+font-size: 4vw;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.box:hover
+{
+    background-color: lightblue;
+    cursor: pointer;
+}
+@media screen and (max-width: 350px) {
+    .game {
+         flex-direction: column-reverse !important;
+     flex-wrap: wrap;
+    margin-top: 10px;
+    align-items: center;
+    }
+    .contain{
+        margin-top: 30px;
+          grid-template-columns: repeat(3,19vw);
+    grid-template-rows: repeat(3,19vw);
+    }
+    .gameinfo p {
+        font-size: 19px;
+    }
+}
