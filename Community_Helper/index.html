@@ -1,22 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Helper ~ V</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>Community Helper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Community Helper</h1>
-        <input type="text" id="search" placeholder="Search for resources...">
-        <button id="search-button">Search</button>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <h2>Available Resources</h2>
-        <div id="resources-list"></div>
+  <header class="site-header">
+    
+    <div class="container header-inner">
+      <a class="logo" href="#">Community Helper</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#contribute" class="nav-link">Contribute</a>
+      </nav>
     </div>
+  </header>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Find local help and resources</h1>
+        <p class="hero-subtitle">Quickly search food banks, shelters, and volunteer groups near you.</p>
+
+        <form class="search-bar" role="search" aria-label="Search resources" onsubmit="return false;">
+          <label for="search" class="sr-only">Search resources</label>
+          <div class="search-group">
+            <input type="text" id="search" name="search" autocomplete="off" placeholder="Search by name, description, or tag" aria-controls="resources-list" />
+            <select id="filter-location" aria-label="Filter by location">
+              <option value="">All locations</option>
+            </select>
+          </div>
+
+          <div class="filters-row">
+            <label class="sr-only" for="filter-category">Filter by category</label>
+            <select id="filter-category" aria-label="Filter by category">
+              <option value="">All categories</option>
+            </select>
+
+            <label class="sr-only" for="sort-by">Sort by</label>
+            <select id="sort-by" aria-label="Sort results">
+              <option value="name-asc">Sort: Name (A→Z)</option>
+              <option value="location-asc">Sort: Location (A→Z)</option>
+              <option value="category-asc">Sort: Category (A→Z)</option>
+            </select>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="search-button" class="btn primary">Search</button>
+            <button type="button" id="clear-button" class="btn ghost">Clear</button>
+          </div>
+        </form>
+
+        <p id="results-count" class="results-count" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="resources" class="resources-section">
+      <div class="container">
+        <h2>Available Resources</h2>
+        <div id="resources-list" class="resources-grid" role="list"></div>
+      </div>
+    </section>
+
+    <section id="contribute" class="contribute-section">
+      <div class="container">
+        <h2>Want to contribute?</h2>
+        <p>Have a resource to add or an idea to improve this site? Open an issue or submit a pull request.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Made with care for communities. <span aria-hidden="true">❤️</span></p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
